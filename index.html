@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+	<title>Fim do 2024.2</title>
+	<link href="favicon.ico" rel="icon">
+  	<link href="favicon.ico" rel="apple-touch-icon">
+</head>
+<body>
+	<div class="center">
+		<h1><span id="semestre-atual">2024.2</span><br>Contador para o final do semestre. <br>Estamos em <span class="data-atual"></span> </h1>
+		<div id="clock">
+			
+		</div>
+	</div>
+	<script type="text/javascript" src="jquery-2.0.0.js"></script>
+	<script type="text/javascript" src="countdown.js"></script>
+	<script type="text/javascript">
+		$('#clock').countdown('2025/3/7', function(event) {
+	
+				var $this = $(this).html(event.strftime(''
+				+ '<div><span>%w</span>Semanas</div>'
+				+ '<div><span>%d</span>Dias</div>'
+				+ '<div><span>%H</span>Horas</div>'
+				+ '<div><span>%M</span>Minutos</div>'
+				+ '<div><span>%S</span>Segundos</div>' 
+				));
+		});
+
+	</script>
+
+	<script>
+        $(document).ready(function() {
+            var dataAtual = new Date();
+            var dia = ("0" + dataAtual.getDate()).slice(-2);
+            var mes = ("0" + (dataAtual.getMonth() + 1)).slice(-2); // Mes começa do 0, então somamos 1
+            var ano = dataAtual.getFullYear();
+            var dataFormatada = dia + "/" + mes + "/" + ano;
+
+            $(".data-atual").text(dataFormatada);
+        });
+    </script>
+</body>
+</html>
