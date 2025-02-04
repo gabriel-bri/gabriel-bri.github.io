@@ -17,28 +17,28 @@
 	<script type="text/javascript" src="jquery-2.0.0.js"></script>
 	<script type="text/javascript" src="countdown.js"></script>
 	<script type="text/javascript">
-		$('#clock').countdown('2025/3/7', function(event) {
-				var dias = event.offset.totalDays;
-				var horas = event.offset.hours;
-				var semanas = event.offset.weeks;
-				var minutos = event.offset.minutes;
-				var segundos = event.offset.seconds;
-
-				var diasTexto = dias === 1 ? 'Dia' : 'Dias'; 
-				var horasTexto = horas === 1 ? 'Hora' : 'Horas';
-				var semanasTexto = semanas === 1 ? 'Semana' : 'Semanas';
-				var minutosTexto = minutos === 1 ? 'Minuto' : 'Minutos';
-				var segundosTexto = segundos === 1 ? 'Segundo' : 'Segundos';
-
-				var $this = $(this).html(event.strftime(''
-				+ '<div><span>%w</span>' + semanasTexto + '</div>'
-				+ '<div><span>%D</span>' + diasTexto + '</div>'
-				+ '<div><span>%H</span>' + horasTexto + '</div>'
-				+ '<div><span>%M</span>' + minutosTexto + '</div>'
-				+ '<div><span>%S</span>' + segundosTexto + '</div>' 
-				));
-		});
-
+	    $('#clock').countdown('2025/3/7', function(event) {
+	        var dias = event.offset.totalDays;
+	        var horas = event.offset.hours;
+	        var semanas = Math.floor(dias / 7);  // Calculando semanas completas
+	        var diasRestantes = dias % 7;  // Calculando os dias restantes após as semanas completas
+	        var minutos = event.offset.minutes;
+	        var segundos = event.offset.seconds;
+	
+	        var diasTexto = diasRestantes === 1 ? 'Dia' : 'Dias'; 
+	        var horasTexto = horas === 1 ? 'Hora' : 'Horas';
+	        var semanasTexto = semanas === 1 ? 'Semana' : 'Semanas';
+	        var minutosTexto = minutos === 1 ? 'Minuto' : 'Minutos';
+	        var segundosTexto = segundos === 1 ? 'Segundo' : 'Segundos';
+	
+	        var $this = $(this).html(event.strftime(''
+	            + '<div><span>' + semanas + '</span>' + semanasTexto + '</div>'
+	            + '<div><span>' + diasRestantes + '</span>' + diasTexto + '</div>'
+	            + '<div><span>%H</span>' + horasTexto + '</div>'
+	            + '<div><span>%M</span>' + minutosTexto + '</div>'
+	            + '<div><span>%S</span>' + segundosTexto + '</div>'
+	        ));
+	    });
 	</script>
 
 	<script>
