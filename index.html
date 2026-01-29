@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
 <head>
+	<script>
+		let = semestreAtual = "2026.1"
+	</script>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="estilo.css">
-	<title>Fim do 2025.1</title>
+	<title><script>document.write(semestreAtual)</script></title>
 	<link href="favicon.ico" rel="icon">
   	<link href="favicon.ico" rel="apple-touch-icon">
 </head>
 <body>
 	<div class="center">
-		<h1><span id="semestre-atual">2026.1</span><br>Contador para o final do semestre. <br>Estamos em <span class="data-atual"></span> </h1>
+		<h1><span id="semestre-atual"><script>document.write(semestreAtual)</script></span><br>Contador para o final do semestre. <br>Estamos em <span class="data-atual"></span> </h1>
 		<div id="clock">
 			
 		</div>
@@ -56,6 +59,7 @@
     </script>
 </body>
 </html>
+
 
 
 
