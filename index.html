@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
 <head>
-	<script>
-		let = semestreAtual = "2026.1";
-	</script>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="estilo.css">
-	<title><script>document.write(semestreAtual)</script></title>
+	<title>Fim do 2025.1</title>
 	<link href="favicon.ico" rel="icon">
   	<link href="favicon.ico" rel="apple-touch-icon">
 </head>
 <body>
 	<div class="center">
-		<h1><span id="semestre-atual"><script>document.write(semestreAtual)</script></span><br>Contador para o final do semestre. <br>Estamos em <span class="data-atual"></span> </h1>
+		<h1><span id="semestre-atual"></span><br>Contador para o final do semestre. <br>Estamos em <span class="data-atual"></span> </h1>
 		<div id="clock">
 			
 		</div>
@@ -44,10 +41,11 @@
         ));
     });
 </script>
-
-
 	<script>
         $(document).ready(function() {
+			let semestreAtual = "2026.1";
+            $('#semestre-atual').text(semestreAtual); // Atualiza a tela com o semestre atual
+            document.title = semestreAtual;
             var dataAtual = new Date();
             var dia = ("0" + dataAtual.getDate()).slice(-2);
             var mes = ("0" + (dataAtual.getMonth() + 1)).slice(-2); // Mes começa do 0, então somamos 1
@@ -59,8 +57,6 @@
     </script>
 </body>
 </html>
-
-
 
 
 
